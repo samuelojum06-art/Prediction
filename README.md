@@ -45,7 +45,7 @@ Return per Bet
 $R_t = \text{odds}_t - 1$ if the team wins, and $R_t = -1$ if the team loses
 
 Portfolio Cumulative P & L
-$\text{P&L} = \sum_{i=1}^{N} B_i \cdot R_i$
+$\text{P/L} = \sum_{i=1}^{N} B_i \cdot R_i$
 
 Behavioral Edge (Advanced Extension)
 
