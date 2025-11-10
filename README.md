@@ -39,11 +39,11 @@ Implied Probability
 $P_t = \dfrac{1}{\text{odds}_t}$
 
 Threshold Condition (Bet Signal)
-$B_t =
+B_t =
 \begin{cases}
-1, & \text{if } \dfrac{P_t - P_0}{P_0} \leq \theta \
+1, & \text{if } \dfrac{P_t - P_0}{P_0} \le \theta \\
 0, & \text{otherwise}
-\end{cases}$
+\end{cases}
 
 Return per Bet
 $R_t =
