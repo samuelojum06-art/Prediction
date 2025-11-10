@@ -39,18 +39,10 @@ Implied Probability
 $P_t = \dfrac{1}{\text{odds}_t}$
 
 Threshold Condition (Bet Signal)
-B_t =
-\begin{cases}
-1, & \text{if } \dfrac{P_t - P_0}{P_0} \le \theta \\
-0, & \text{otherwise}
-\end{cases}
+$B_t = 1$ if $\dfrac{P_t - P_0}{P_0} \le \theta$, otherwise $B_t = 0$
 
 Return per Bet
-$R_t =
-\begin{cases}
-\text{odds}_t - 1, & \text{if team wins} \
--1, & \text{if team loses}
-\end{cases}$
+$R_t = \text{odds}_t - 1$ if the team wins, and $R_t = -1$ if the team loses
 
 Portfolio Cumulative P & L
 $\text{P&L} = \sum_{i=1}^{N} B_i \cdot R_i$
