@@ -1,4 +1,4 @@
-# Prediction
+# Behavioral Odds Trading Algorithm
 
 # Overview
 
