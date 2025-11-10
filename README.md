@@ -7,7 +7,9 @@ By treating betting markets like financial markets, the model attempts to identi
 The project simulates, tests, and visualizes the profitability of a logic-based backtesting strategy using data science and quantitative methods, without requiring machine learning.
 
 # Goal
-To determine whether sports markets misprice odds in the short term due to behavioral bias, and if those inefficiencies can be exploited through a rule-based betting strategy.
+To determine whether sports markets misprice odds in the short term due to behavioral bias, and if those inefficiencies can be exploited through a rule-based betting strategy. Objective
+
+To determine whether sports betting markets overreact to short-term events — and whether a quantitative, logic-based strategy can profit from those behavioral biases.
 
 # Logic
 
@@ -55,6 +57,13 @@ $\text{P/L} = \sum_{i=1}^{N} B_i \cdot R_i$
 
 $E_t = P_{t}^{\text{real}} - P_{t}^{\text{market}}$
 If $E_t > 0$, the market underestimates the team’s chance, a potential buy opportunity.
+
+========== BACKTEST SUMMARY ==========
+Total Matches Simulated: 10
+Total Bets Made: 46
+Total P&L: +3.72
+Average Return per Bet: 0.081
+======================================
 
 # Future Plans
 
