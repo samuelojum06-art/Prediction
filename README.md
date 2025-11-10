@@ -36,8 +36,53 @@ The strategy works as follows:
 # Formula's Used
 
 Implied Probability
-P_t = 1 / odds_t
+$P_t = \dfrac{1}{\text{odds}_t}$
 
 Threshold Condition (Bet Signal)
+$B_t =
+\begin{cases}
+1, & \text{if } \dfrac{P_t - P_0}{P_0} \leq \theta \
+0, & \text{otherwise}
+\end{cases}$
 
+Return per Bet
+$R_t =
+\begin{cases}
+\text{odds}_t - 1, & \text{if team wins} \
+-1, & \text{if team loses}
+\end{cases}$
 
+Portfolio Cumulative P & L
+$\text{P&L} = \sum_{i=1}^{N} B_i \cdot R_i$
+
+Behavioral Edge (Advanced Extension)
+
+$E_t = P_{t}^{\text{real}} - P_{t}^{\text{market}}$
+If $E_t > 0$, the market underestimates the team’s chance — a potential buy opportunity.
+
+# Future Plans
+
+The upcoming version will feature:
+
+Adjustable thresholds (−5 %, −10 %, −20 %)
+
+Real-time backtest visualization
+
+Comparison vs. random and baseline models
+
+# Next Steps
+
+ Multi-threshold backtesting
+
+ Kelly criterion bet sizing
+
+ Historical probability datasets for behavioral edge
+
+ Integration with real odds APIs (OddsAPI, Betfair)
+
+ Interactive Streamlit dashboard
+
+# Author
+Samuel Ojum
+University of Arizona — Eller College of Management
+Quantitative Finance • Data Science • Behavioral Market Research
