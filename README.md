@@ -58,12 +58,27 @@ $\text{P/L} = \sum_{i=1}^{N} B_i \cdot R_i$
 $E_t = P_{t}^{\text{real}} - P_{t}^{\text{market}}$
 If $E_t > 0$, the market underestimates the team’s chance, a potential buy opportunity.
 
-========== BACKTEST SUMMARY ==========
+Simulated Output 
 Total Matches Simulated: 10
 Total Bets Made: 46
 Total P&L: +3.72
 Average Return per Bet: 0.081
-======================================
+
+# What the Current Code Does
+
+Simulates 10 random soccer matches with per-minute odds data for two teams.
+
+Converts those odds into probabilities.
+
+Generates buy signals when thresholds are crossed (e.g., −10% drop).
+
+Simulates profit/loss based on random match outcomes.
+
+Aggregates total bets, returns, and cumulative P&L.
+
+Plots Cumulative P&L per Match using matplotlib.
+
+Prints a performance summary table for easy comparison.
 
 # Future Plans
 
