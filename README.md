@@ -2,12 +2,12 @@
 
 # Overview
 
-This project explores behavioral inefficiencies in live sports betting markets — analyzing how odds fluctuate during a match as if they were financial time-series data.
+This project explores behavioral inefficiencies in live sports betting markets, analyzing how odds fluctuate during a match as if they were financial time-series data.
 By treating betting markets like financial markets, the model attempts to identify market overreactions when a team’s probability of winning drops too sharply after an event (e.g., conceding a goal).
-The project simulates, tests, and visualizes the profitability of a logic-based backtesting strategy using data science and quantitative methods — without requiring machine learning.
+The project simulates, tests, and visualizes the profitability of a logic-based backtesting strategy using data science and quantitative methods, without requiring machine learning.
 
 # Goal
-To determine whether sports markets misprice odds in the short term due to behavioral bias — and if those inefficiencies can be exploited through a rule-based betting strategy.
+To determine whether sports markets misprice odds in the short term due to behavioral bias, and if those inefficiencies can be exploited through a rule-based betting strategy.
 
 # Logic
 
@@ -54,17 +54,17 @@ $\text{P/L} = \sum_{i=1}^{N} B_i \cdot R_i$
 5. Behavioral Edge (Advanced Extension)
 
 $E_t = P_{t}^{\text{real}} - P_{t}^{\text{market}}$
-If $E_t > 0$, the market underestimates the team’s chance — a potential buy opportunity.
+If $E_t > 0$, the market underestimates the team’s chance, a potential buy opportunity.
 
 # Future Plans
 
-The upcoming version will feature:
+   The upcoming version will feature:
 
-Adjustable thresholds (−5 %, −10 %, −20 %)
+   Adjustable thresholds (−5 %, −10 %, −20 %)
 
-Real-time backtest visualization
+   Real-time backtest visualization
 
-Comparison vs. random and baseline models
+   Comparison vs. random and baseline models
 
 # Next Steps
 
@@ -80,5 +80,5 @@ Comparison vs. random and baseline models
 
 # Author
 Samuel Ojum
-University of Arizona — Eller College of Management
+University of Arizona, Eller College of Management
 Quantitative Finance • Data Science • Behavioral Market Research
