@@ -9,7 +9,7 @@ The project simulates, tests, and visualizes the profitability of a logic-based 
 # Goal
 To determine whether sports markets misprice odds in the short term due to behavioral bias, and if those inefficiencies can be exploited through a rule-based betting strategy. Objective
 
-To determine whether sports betting markets overreact to short-term events — and whether a quantitative, logic-based strategy can profit from those behavioral biases.
+To determine whether sports betting markets overreact to short-term events, and whether a quantitative, logic-based strategy can profit from those behavioral biases.
 
 # Logic
 
@@ -105,4 +105,4 @@ Prints a performance summary table for easy comparison.
 # Author
 Samuel Ojum
 University of Arizona, Eller College of Management
-Quantitative Finance • Data Science • Behavioral Market Research
+Future Quant
