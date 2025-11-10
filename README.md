@@ -35,19 +35,23 @@ The strategy works as follows:
 
 # Formula's Used
 
-Implied Probability
+1. Implied Probability
+   
 $P_t = \dfrac{1}{\text{odds}_t}$
 
-Threshold Condition (Bet Signal)
+2. Threshold Condition (Bet Signal)
+   
 $B_t = 1$ if $\dfrac{P_t - P_0}{P_0} \le \theta$, otherwise $B_t = 0$
 
-Return per Bet
+3. Return per Bet
+   
 $R_t = \text{odds}_t - 1$ if the team wins, and $R_t = -1$ if the team loses
 
-Portfolio Cumulative P & L
+4. Portfolio Cumulative P & L
+   
 $\text{P/L} = \sum_{i=1}^{N} B_i \cdot R_i$
 
-Behavioral Edge (Advanced Extension)
+5. Behavioral Edge (Advanced Extension)
 
 $E_t = P_{t}^{\text{real}} - P_{t}^{\text{market}}$
 If $E_t > 0$, the market underestimates the team’s chance — a potential buy opportunity.
