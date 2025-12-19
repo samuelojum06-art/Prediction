@@ -7,23 +7,19 @@ import matplotlib.pyplot as plt
 from clients.gamma_client import PolymarketGammaClient
 from clients.clob_client import PolymarketCLOB, ClobError
 
-# -----------------------------
-# Config (safe defaults)
-# -----------------------------
+
 THRESHOLD = float(os.getenv("PM_THRESHOLD", "-0.10"))     # 10% drop in prob
 FIDELITY = int(os.getenv("PM_FIDELITY", "60"))            # seconds per point (60 = 1-min)
 N_MARKETS = int(os.getenv("PM_N_MARKETS", "10"))          # how many markets to test
 WINDOW_HOURS = float(os.getenv("PM_WINDOW_HOURS", "1"))   # history window size
 SLEEP_BETWEEN = float(os.getenv("PM_SLEEP_BETWEEN", "0.05"))
 
-# If you do not have resolution data available, keep this True to simulate outcomes
 SIMULATE_RESOLUTION = str(os.getenv("PM_SIM_RESOLUTION", "1")).lower() in {"1", "true", "yes", "on"}
 
 np.random.seed(42)
 
-# -----------------------------
 # Helpers
-# -----------------------------
+
 def now_epoch() -> int:
     return int(time.time())
 
@@ -44,7 +40,7 @@ def normalize_price_to_prob(price: float) -> float:
     return float(np.clip(p, 0.0001, 0.9999))
 
 def market_id_from_gamma_row(m: dict) -> str | None:
-    # Gamma field names vary; handle common variants
+    # Gamma, verying names; handle common variants
     return (
         m.get("conditionId")
         or m.get("condition_id")
@@ -76,9 +72,7 @@ def pm_bet_return(entry_price: float, resolves_yes: int) -> float:
         return 0.0
     return (1.0 - p) if resolves_yes == 1 else (-p)
 
-# -----------------------------
-# Fetch data
-# -----------------------------
+# Data
 gamma = PolymarketGammaClient()
 clob = PolymarketCLOB()
 
@@ -122,7 +116,7 @@ for i, m in enumerate(usable, start=1):
         print(f"[skip] {market_id}: empty history")
         continue
 
-    # Normalize response points. Common shapes: {"t":..., "p":...} or {"timestamp":..., "price":...}
+    # Normalize response points. 
     for p in pts:
         ts = p.get("t") or p.get("timestamp") or p.get("ts")
         price = p.get("p") or p.get("price") or p.get("mid") or p.get("value")
@@ -141,12 +135,12 @@ df = pd.DataFrame(rows)
 if df.empty:
     raise RuntimeError("No price history collected. Increase PM_WINDOW_HOURS or check market IDs.")
 
-# Create minute index for plotting
+# minute index for plotting
 df = df.sort_values(["market_id", "ts"]).reset_index(drop=True)
 df["minute"] = df.groupby("market_id").cumcount() + 1
 df["prob"] = df["price"].apply(normalize_price_to_prob)
 
-# Baseline probability (initial)
+# initial baseline probability 
 p0 = df.groupby("market_id")["prob"].first().rename("P0")
 df = df.merge(p0, on="market_id")
 df["pct_change"] = (df["prob"] - df["P0"]) / df["P0"]
@@ -154,12 +148,11 @@ df["pct_change"] = (df["prob"] - df["P0"]) / df["P0"]
 # Signal: buy YES when probability drops by threshold or more
 df["signal"] = np.where(df["pct_change"] <= THRESHOLD, 1, 0)
 
-# Resolution (simulated unless you later wire true settlement results)
+# Resolution 
 if SIMULATE_RESOLUTION:
     res = df.groupby("market_id")["P0"].first().apply(simulate_winner).rename("resolves_yes")
     df = df.merge(res, on="market_id")
 else:
-    # Placeholder: if you later add true event outcomes from Gamma, merge them here
     df["resolves_yes"] = 0
 
 # P&L when theu place bet only when signal triggers; otherwise 0
@@ -212,3 +205,4 @@ print(summary_sorted.head(5)[["market_id", "bets_made", "total_return", "p0", "r
 
 print("\nBottom markets:")
 print(summary_sorted.tail(5)[["market_id", "bets_made", "total_return", "p0", "resolves_yes", "title"]])
+
